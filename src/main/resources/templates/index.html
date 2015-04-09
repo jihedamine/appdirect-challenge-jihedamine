@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layouts/layout">
+<head>
+    <title>NotesApp</title>
+</head>
+<body>
+<div layout:fragment="content"
+     class="container">
+    <h2><span th:text="#{welcome}"></span> <span th:text="${user.firstName}"></span>!</h2>
+    <a th:href="@{/user/notes/list(openid=${user.openId})}"><span th:text="#{index.notes.list}"></span></a>
+    <br/>
+    <a th:href="@{/user/notes/create(openid=${user.openId})}"><span th:text="#{index.notes.create}"></span></a>
+</div>
+</body>
+</html>

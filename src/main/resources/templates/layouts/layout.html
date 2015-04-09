@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <title>NotesApp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <style>body {
+        padding-top: 50px;
+    }</style>
+    <style>.tabcontent {
+        padding-top: 20px;
+        padding-left: 10px;
+    }</style>
+</head>
+<body>
+<div class="container">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a th:href="@{/user/home(openid=${user.openId})}"><span th:text="#{home}"></span></a>
+                </li>
+                <li>
+                    <a th:href="@{/user/notes/list(openid=${user.openId})}"><span th:text="#{notes.list}"></span></a>
+                </li>
+                <li>
+                    <a th:href="@{/user/profile(openid=${user.openId})}"><span th:text="#{user.profile}"></span></a>
+                </li>
+                <li>
+                    <a th:href="@{/user/account(openid=${user.openId})}"><span th:text="#{company.account}"></span></a>
+                </li>
+                <li th:if="${user.isAppAdmin()}">
+                    <a th:href="${user.companyAccount.marketplace.baseUrl} + '/account/apps'"><span
+                                th:text="#{billing}"></span></a>
+                </li>
+                <li th:if="${user.isAppAdmin()}">
+                    <a th:href="${user.companyAccount.marketplace.baseUrl} + '/account/users'"><span
+                                th:text="#{usermanagement}"></span></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a th:href="@{/logout(url=${user.companyAccount.marketplace.baseUrl})}"><span th:text="#{logout}"></span> (<span th:text="${user.firstName}"></span> <span
+                        th:text="${user.lastName}"></span>)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <h1>NotesApp
+                <small><span th:text="#{notesapp.slogan}"></span></small>
+            </h1>
+        </div>
+        <div class="col-lg-6 tabcontent" layout:fragment="content">
+            Fake content
+        </div>
+    </div>
+</div>
+</body>
+</html>

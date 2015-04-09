@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layouts/layout">
+<head>
+    <title>NotesApp</title>
+</head>
+<body>
+<div layout:fragment="content"
+     class="container">
+    <h2 th:text="#{user.profile}"></h2>
+    <table class="table table-border">
+        <tbody>
+        <tr>
+            <td th:text="#{firstName}"></td>
+            <td th:text="${user.firstName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{lastName}"></td>
+            <td th:text="${user.lastName}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{email}"></td>
+            <td th:text="${user.email}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{isAppAdmin}"></td>
+            <td th:if="${user.isAppAdmin()}" th:text="#{yes}"></td>
+            <td th:if="${!user.isAppAdmin()}" th:text="#{no}"></td>
+        </tr>
+        <tr>
+            <td th:text="#{company.name}"></td>
+            <td th:text="${user.companyAccount.company.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

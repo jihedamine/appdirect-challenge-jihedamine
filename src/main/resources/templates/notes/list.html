@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layouts/layout">
+<head>
+    <title>NotesApp</title>
+</head>
+<body>
+<div layout:fragment="content"
+     class="container">
+    <h3 th:text="${message}"></h3>
+
+    <h2 th:text="#{notes}"></h2>
+    <a th:href="@{/user/notes/create(openid=${user.openId})}"><span th:text="#{index.notes.create}"></span></a>
+    <table class="table table-border">
+        <thead>
+        <tr>
+            <th th:text="#{creation.date}"></th>
+            <th th:text="#{content}"></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="note : ${user.notes}">
+            <td th:text="${note.creationDate}"></td>
+            <td th:text="${note.content}"></td>
+            <td>
+                <form th:action="@{'/user/notes/' + ${note.id} + '?openid=' + ${user.openId}}"
+                      th:method="delete" action="#">
+                    <input class="btn btn-lin" type="submit" th:value="#{notes.delete}"/>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
