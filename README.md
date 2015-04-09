@@ -26,35 +26,37 @@ The application is integrated with AppDirect Marketplace.
 
 ## Showcase instance 
 A showcase instance of NotesApp is deployed at https://appdirect-challenge-jihedamine.herokuapp.com
+
 Email me at jihedamine-at-gmail-dot-com with your email so that I can invite you and assign you as a user of the application.
+
 The showcase instance uses a PostgreSQL database provisioned by Heroku.
 
 ## Configuration
 
 ### Database configuration
 You have to setup the following environment variables on the server where you will deploy the webapp
->>export NOTESAPP_DB_USERNAME=<your database username>
+> export NOTESAPP_DB_USERNAME=your database username
 
->>export NOTESAPP_DB_PASSWORD=<your database user password>
+> export NOTESAPP_DB_PASSWORD=your database user password
 
->>export NOTESAPP_DB_URL=<jdbc formatted url to the database>
+> export NOTESAPP_DB_URL=jdbc formatted url to the database
 
->>export NOTESAPP_DB_DIALECT=<your database hibernate dialect>
+> export NOTESAPP_DB_DIALECT=your database hibernate dialect
 
 For example, to connect the user 'myusername' who has the password 'secret' to the 'mydb' PostgreSQL database on localhost, we would have the following values:
->>export NOTESAPP_DB_USERNAME=myusername
+> export NOTESAPP_DB_USERNAME=myusername
 
->>export NOTESAPP_DB_PASSWORD=secret
+> export NOTESAPP_DB_PASSWORD=secret
 
->>export NOTESAPP_DB_URL=jdbc:postgresql://localhost:5432/mydb
+> export NOTESAPP_DB_URL=jdbc:postgresql://localhost:5432/mydb
 
->>export NOTESAPP_DB_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+> export NOTESAPP_DB_DIALECT=org.hibernate.dialect.PostgreSQLDialect
 
 ### OAuth
 You have to setup the following OAUTH environment variables on the server where you will deploy the webapp
->>export appdirect.consumer.key = <your oauth consumer key>
+> export appdirect.consumer.key=your oauth consumer key
 
->>export appdirect.consumer.secret = <your oauth consumer secret>
+> export appdirect.consumer.secret=your oauth consumer secret
 
 These values can be found in your AppDirect Developer Portal, at "Edit Application" > "Edit Integration" > "OAuth Configuration"
 
